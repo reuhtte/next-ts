@@ -1,0 +1,68 @@
+import type { Equipment } from "./definitions";
+
+export const equipmentData = [
+  {
+    id: "eq-01",
+    name: "Espada de hojalata",
+    category: "Arma",
+    vitality: 0,
+    strength: 4,
+    magic: 0,
+  },
+  {
+    id: "eq-02",
+    name: "Bastón esmeralda",
+    category: "Arma",
+    vitality: 0,
+    strength: 0,
+    magic: 4,
+  },
+  {
+    id: "eq-03",
+    name: "Abrigo de cartógrafo",
+    category: "Armadura",
+    vitality: 3,
+    strength: 0,
+    magic: 1,
+  },
+  {
+    id: "eq-04",
+    name: "Coraza de hojalata",
+    category: "Armadura",
+    vitality: 5,
+    strength: 1,
+    magic: 0,
+  },
+  {
+    id: "eq-05",
+    name: "Sombrero de viajero",
+    category: "Cabeza",
+    vitality: 2,
+    strength: 0,
+    magic: 1,
+  },
+  {
+    id: "eq-06",
+    name: "Yelmo del guardián",
+    category: "Cabeza",
+    vitality: 3,
+    strength: 1,
+    magic: 0,
+  },
+  {
+    id: "eq-07",
+    name: "Anillo del recuerdo",
+    category: "Accesorio",
+    vitality: 1,
+    strength: 0,
+    magic: 3,
+  },
+  {
+    id: "eq-08",
+    name: "Medallón del león",
+    category: "Accesorio",
+    vitality: 2,
+    strength: 2,
+    magic: 0,
+  },
+] satisfies Equipment[];
