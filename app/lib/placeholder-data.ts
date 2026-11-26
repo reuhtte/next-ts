@@ -1,3 +1,5 @@
+import type { Equipment } from "./definitions";
+
 export const equipmentData = [
   {
     id: "eq-01",
@@ -63,4 +65,4 @@ export const equipmentData = [
     strength: 2,
     magic: 0,
   },
-];
+] satisfies Equipment[];
