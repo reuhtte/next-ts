@@ -2,36 +2,43 @@ import { createClient } from "@libsql/client";
 import type { Equipment } from "@/app/lib/definitions";
 import Card from "@/app/equipment/ui/card";
 
-const client = createClient({
-  url: process.env.TURSO_DATABASE_URL || "",
-  authToken: process.env.TURSO_AUTH_TOKEN,
-});
+const getEquipmentData = async (): Promise<{ rows: Equipment[] }> => {
+  const client = createClient({
+    url: process.env.TURSO_DATABASE_URL || "",
+    authToken: process.env.TURSO_AUTH_TOKEN,
+  });
 
-const result = await client.execute("SELECT * FROM equipment ORDER BY id;");
+  const result = await client.execute("SELECT * FROM equipment ORDER BY id;");
 
-const equipmentData: { rows: Equipment[] } = {
-  rows: result.rows.map((row, index): Equipment => {
-    const { id, name, category, vitality, strength, magic } = row;
+  const equipmentData: { rows: Equipment[] } = {
+    rows: result.rows.map((row, index): Equipment => {
+      const { id, name, category, vitality, strength, magic } = row;
 
-    if (
-      typeof id !== "string" ||
-      typeof name !== "string" ||
-      typeof category !== "string" ||
-      typeof vitality !== "number" ||
-      !Number.isFinite(vitality) ||
-      typeof strength !== "number" ||
-      !Number.isFinite(strength) ||
-      typeof magic !== "number" ||
-      !Number.isFinite(magic)
-    ) {
-      throw new Error(`Invalid equipment data at row ${index + 1}`);
-    }
+      if (
+        typeof id !== "string" ||
+        typeof name !== "string" ||
+        typeof category !== "string" ||
+        typeof vitality !== "number" ||
+        !Number.isFinite(vitality) ||
+        typeof strength !== "number" ||
+        !Number.isFinite(strength) ||
+        typeof magic !== "number" ||
+        !Number.isFinite(magic)
+      ) {
+        throw new Error(`Invalid equipment data at row ${index + 1}`);
+      }
 
-    return { id, name, category, vitality, strength, magic };
-  }),
+      return { id, name, category, vitality, strength, magic };
+    }),
+  };
+
+  return equipmentData;
 };
 
-export default function Page() {
+export default async function Page() {
+  "use cache";
+  const equipmentData = await getEquipmentData();
+
   return (
     <>
       <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
