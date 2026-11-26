@@ -3,10 +3,10 @@ import { Equipment } from "@/app/lib/definitions";
 export default function Card({ item }: { item: Equipment }) {
   return (
     <div className="bg-[#19211D] border-[#536457] border rounded-lg p-5 text-white flex flex-row gap-2">
-      <div className="bg-[#536457] border-2 border-[#536457] rounded-lg p-2 mr-4 min-w-64 items-center flex justify-center">
+      <div className="bg-[#536457] border-2 border-[#536457] rounded-lg p-2 mr-4 size-16 shrink-0 items-center flex justify-center">
         Some picture
       </div>
-      <div className="border-1 border-[#536457]"></div>
+      <div className="border border-[#536457]"></div>
       <div className="flex flex-col gap-1 ml-4">
         <h2 className="font-semibold text-xl">{item.name}</h2>
         <div>
