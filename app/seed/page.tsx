@@ -46,8 +46,6 @@ export const POST = async () => {
   return NextResponse.json({ message: "Seed data inserted successfully" });
 };
 
-POST();
-
 export default function Page() {
   return <p>Seed page</p>;
 }

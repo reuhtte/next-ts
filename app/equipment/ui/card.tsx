@@ -2,8 +2,8 @@ import { Equipment } from "@/app/lib/definitions";
 
 export default function Card({ item }: { item: Equipment }) {
   return (
-    <div className="bg-[#19211D] border-[#536457] border-2 rounded-lg p-4 text-white flex flex-row gap-2">
-      <div className="bg-[#536457] border-2 border-[#536457] rounded-lg p-2 mr-4">
+    <div className="bg-[#19211D] border-[#536457] border rounded-lg p-5 text-white flex flex-row gap-2">
+      <div className="bg-[#536457] border-2 border-[#536457] rounded-lg p-2 mr-4 min-w-64 items-center flex justify-center">
         Some picture
       </div>
       <div className="border-1 border-[#536457]"></div>
