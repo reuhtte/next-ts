@@ -1,4 +1,4 @@
-const equipments = [
+export const equipmentData = [
   {
     id: "eq-01",
     name: "Espada de hojalata",
